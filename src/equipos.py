@@ -81,3 +81,35 @@ def registrar_equipo():
     else:
         print("Error: no se pudo guardar el equipo.")
     
+def listar_equipos():
+    """
+    SB04 - Consulta los equipos registrados
+    y muestra su disponibilidad.
+    """
+
+    print("\n--- EQUIPOS REGISTRADOS ---")
+
+    equipos = cargar_datos(ARCHIVO_EQUIPOS)
+
+    if not equipos:
+        print("No hay equipos registrados.")
+        return
+
+    print(
+        f"{'Código':<12}"
+        f"{'Tipo':<15}"
+        f"{'Marca':<15}"
+        f"{'Modelo':<15}"
+        f"{'Estado':<15}"
+    )
+
+    print("-" * 72)
+
+    for equipo in equipos:
+        print(
+            f"{equipo['codigo']:<12}"
+            f"{equipo['tipo']:<15}"
+            f"{equipo['marca']:<15}"
+            f"{equipo['modelo']:<15}"
+            f"{equipo['estado']:<15}"
+        )
